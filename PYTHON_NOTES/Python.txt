@@ -1,0 +1,197 @@
+1. Casting : means int,float,boolean , complex 
+
+**** Example ****
+x = 5
+y = "hetvi"
+print(type(x))
+print(type(y))  #output : <class 'int'>,<class 'str'>
+
+********************************************************************************************************************************************************
+
+CASE-SENSITIVE MEANS YOU CAN TAKE SAME LETTER VARIABLE BUT THE DIFFERENCE IS YOU HAVE TO TAKE ONE CAPITAL AND SMALL LETTER :
+--> it will create two variables
+A = 4
+a=art --> output will be 4,art
+
+********************************************************************************************************************************************************
+
+# 2. Type Conversion : means converting one type to another
+
+**** Example ****
+x="30"   ---> x is string now
+y=int(x) ---> y is integer now
+z=bool("true") ---> z is boolean now
+print (x+" "+ str(y)+" "+ bool(z))  #output : 3030True
+
+********************************************************************************************************************************************************
+
+2. Global Variables : Variables which create outside of a function
+are called global variables and they can be used by everyone inside of function & outside in the program.
+
+**** Example 1: Create a variable outside of a function, and use it inside the function ****
+        x = "hetvi"
+        def myfunc():
+        print("my name is" +x)
+        myfunc()  #output : my name is hetvi
+        
+**** Example 2: Create a variable inside a function, with the same name as the global variable ****
+
+x ="hetvi1" #global varaible
+
+def myfunc():
+
+x = "hetvi2" #(local varible)
+
+print("my name is" + x)
+
+myfunc()
+
+print("my name is" + x)
+
+
+3. Strip : Return the string without any whitespace at the beginning or the end.
+
+**** Example ****
+
+txt = " Hello World "
+
+txt.strip()
+
+print(txt)
+
+# ---> WITHOUT USING STRIP METHOD :
+
+def remove(string):
+    return "".join(string.split())
+ 
+ 
+# Driver Program
+string = ' g e e k '
+print(remove(string))
+4. If you do not know the number of keyword arguments that will be passed into your function, there is a prefix you can add in the function definition, which prefix?
+
+**** EXAMPLE **** 
+
+def my_function(**kid):
+
+  print("His last name is " + kid["lname"])
+
+5. Create a lambda function that takes one parameter (a) and returns it.
+
+**** Example ****
+
+x = lambda a:a
+
+6.STRING_METHODS :
+
+capitalize()	Converts the first character to upper case
+
+casefold()	Converts string into lower case
+
+center()	Returns centered text
+
+count()	Counts how many times a specified value occurs in a string
+
+encode()	Encodes the string using the code registered for encoding
+
+endswith()  Returns true if the string ends with the specified suffix
+
+expandtabs() Sets the tab size of the stringfind()	Searches the string for a specified value and returns its position
+
+format()	Formats specified values in a string
+
+index()	Searches the string for a specified value and returns its position
+
+isalnum()	Returns True if all characters in the string are alphanumeric
+
+isalpha()	Returns True if all characters in the string are alphabetic
+
+isdigit()	Returns True if all characters in the string are digits
+
+islower()	Returns True if all characters in the string are lowercase
+
+isspace()	Returns True if there are only whitespaces in the string
+
+istitle()	Returns True if the string follows the rules of a title
+
+isupper()	Returns True if all characters in the string are uppercase
+
+join()	Joins the elements of an iterable to the end of the string
+
+ljust()	Returns a left justified version of the string
+
+lower()	Converts a string into lowercase
+
+lstrip()	Removes leading spaces from the string
+
+maketrans()	Returns a translation table to be used in translations
+
+partition()	Returns a tuple where the part before the separator is found, the separator itself and then the part after the separator. If the separator
+
+7. Boolean : 
+--->  Some Values are False
+      In fact, there are not many values that evaluate to False, except empty values, such as (), [], {}, "", the number 0, and the value None. 
+      And of course the value False evaluates to False.
+
+--->  Almost any value is evaluated to True if it has some sort of content.
+      Any string is True, except empty strings.Any number is True, except 0.
+      Any list, tuple, set, and dictionary are True, except empty ones.
+
+-->   set does not keep duplicates 
+      by using symmetric_difference_update() method will keep only the
+      elements that are not present in both sets 
+
+-->   The intersection() method will return a new set, that only contains the items that are present in both sets
+
+8. REGULAR EXPRESSION : RegEx Functions
+
+RegEx Functions:
+
+--> The re module offers a set of functions that allows us to search a string for a match:
+
+1.Function:	Description
+2.findall:	Returns a list containing all matches
+3.search:	Returns a Match object if there is a match anywhere in the string
+4.split:	Returns a list where the string has been split at each match
+5.sub:	Replaces one or many matches with a string
+
+*********************************************************************************************************************
+--> The raise keyword is used to raise an exception.
+
+--> You can define what kind of error to raise, and the text to print to the user.
+
+** Example 1 **
+--> Raise a TypeError if x is not an integer:
+
+x = "hello"
+
+if not type(x) is int:
+  raise TypeError("Only integers are allowed")
+  
+------------------------------------------------------------------------------------------------
+
+ N
+
+x = -1
+
+if x < 0:
+  raise Exception("Sorry, no numbers below zero")
+
+
+9. String Formatting :
+
+quantity : 5
+itemno: 9    
+price: 86
+order = "i want {} peices of item number {} for {:.2f} rupees"
+print (order.format ( quantity , itemno , price ))
+Output: i want 5 pieces of item number 9 for 86.00 rupees
+
+*******************************************************************************************************************
+
+File Handling :
+
+--> open function takes two parameters ; filename and module
+
+--> 4 modes are there : "r":read, "a":append, "w":write, "x":create, "t":text, "b":binary(eg. images)............
+
