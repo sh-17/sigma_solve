@@ -1,3 +1,6 @@
+(google sheet) : https://docs.google.com/spreadsheets/d/15KBEmVB8PVkcsEq7PkB-SOAKwfjY_7P4iZlgcs7rouk/edit#gid=0 
+
+
 1. Casting : means int,float,boolean , complex 
 
 **** Example ****

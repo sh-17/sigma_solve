@@ -14,8 +14,8 @@ def func(n):
 func("hii")
 print(l)
 
-# global keyword
-
+# global keyword --> allow kre user ne modify karva mate outside var... je current scope ma hoi ene  
+# when we want to read nd write any global var value insdie the function
 l = 10 # global scope
 def func(n):
     #l = 5 #local
@@ -34,5 +34,6 @@ def hey():
         a = 6
     print("before hello()",a)
     hello()
-    print("after hello()",a)
+    print("after "
+          "hello()",a)
 hey()

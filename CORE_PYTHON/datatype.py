@@ -46,3 +46,4 @@ var = {'hetvi':100,'kashvi':200,'honey':300}
 print('hetvi' in var)# --> check if key is present in dictonary
 del var['hetvi']    ## delete key from dictionary
 print(var)
+
