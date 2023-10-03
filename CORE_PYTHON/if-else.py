@@ -33,3 +33,21 @@ if num > 0:
 a = int(input("ent num:"))
 b = int(input("ent num:"))
 print('greater')if a > b else print('equal') if a == b else print('smaller')
+
+# nested if-else
+
+num = int(input("enter number :"))
+
+if num > 0 and num < 10:
+    if num < 5 :
+        print("less than 5")
+    else:
+        print("greater than 5")
+elif num >= 10:
+    print("greater than or equal 10")
+    if num >= 15:
+        print("greater than 15")
+    else:
+        print("less than 15")
+else:
+    print("ent num again: ")

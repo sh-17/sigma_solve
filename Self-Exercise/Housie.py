@@ -9,6 +9,6 @@ while count < 12:
         main_ticket.append(ticket)
         count += 1
 
-# Print the main_ticket list after generating all 12 unique numbers
+# Print the main_ticket list all 12 unique numbers
 for number in main_ticket:
     print(number, end=" ")

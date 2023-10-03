@@ -1,6 +1,6 @@
 # NOTE : MEANING OF ITERATOR Repetitive execution of the same block of code over and over Even strings are iterable
 # objects, and can return an iterator iter method is used to get an iterator ..
-
+# iterable aek object che ae iterator ne generate kari ske
 
 # sequence ma show thay
 mystr = "hetvi"
