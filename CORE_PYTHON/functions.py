@@ -1,5 +1,15 @@
 # You can add as many arguments as you want, just separate them with a comma.
 
+""" If we do not include any return statement in function, it automatically returns None.
+So, in Python function always returns a value.
+
+- A function can take an unlimited number of arguments.
+
+- A Python function can return multiple values
+
+"""
+
+
 # function with one argument Example :
 def my_fun(fname):  #fname is argument,
     print(fname +"ART")
@@ -97,3 +107,18 @@ num = 10
 print("fibonacci")
 for i in range (num):
     print(fibbonacci(i),end="")
+
+"""
+
+-> Main 2 Types of Function :-
+    1)Built-in Function
+        Example - max(), min(), print(), len(), input()        
+    2)User Define Function
+
+-> Two Types of user define function :-
+    i)Default Function (No Argument)
+        Example - def class(): , def Test(): 
+    ii)Parameterised Function (Single or Multiple Argument)
+        Example - def class(a): , def Test(x,y,z):
+
+"""
