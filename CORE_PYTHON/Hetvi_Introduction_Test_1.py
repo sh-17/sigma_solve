@@ -14,8 +14,14 @@ for i in range(1,User+1):
 """
 
 # reverse string
+n = input("enter name :")
+rev = n[::-1]
+print()
+print('Reverse String:', rev)
 
-n = "Hey! I'm An Artist"
+""" Output : Reverse String : ereH ivteH yeH  """
+
+n = "Hey I'm An Artist"
 rev = n[::-1]
 print()
 print('Reverse String:', rev)
