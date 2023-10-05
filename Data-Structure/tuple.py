@@ -37,7 +37,7 @@ print(tuple_list)
 tuple_list.insert(2, "hello")
 list_tuple = tuple(tuple_list)
 print(list_tuple)
-""" O/P : [1,2,5,-86,-5,36] """
+""" O/P : [1,2,'hello',5,-86,-5,36] """
 
 # Count() :
 """It will Return the number of elements with the specified value inside the tuple."""
@@ -55,3 +55,10 @@ print(n.index(4))
 n = (1,2,5,-86,-5,36)
 del n
 print(n)
+
+# concate
+
+l = ('hey','I','m')
+l2 = ('artist')
+myart = l + l2
+print(myart)
