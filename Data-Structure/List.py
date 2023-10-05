@@ -33,8 +33,7 @@ print(list)
 
 # USING HETEROGENOUS :
 
-""" Heterogenous: The list can contain different kinds 
-    of elements i.e; they can contain elements of string, integer, boolean, or any type."""
+""" Heterogenous: The list can contain different kinds of elements i.e; they can contain elements of string, integer, boolean, or any type."""
 
 list = [1.0,'hetvi',56]
 print(list)
