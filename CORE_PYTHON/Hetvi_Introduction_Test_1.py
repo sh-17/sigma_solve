@@ -29,6 +29,14 @@ print('Reverse String:', rev)
 
 """ Output : Reverse String : tsirtrA nA m'I !yeH """
 
+list = ("hetvi")
+reverse_list = []
+
+for i in list:
+    reverse_list.insert(0,i)
+for i in reverse_list:
+    print(i,end=" ")
+
 # using string join() function with reverse iterate method
 a = ['a','b','c']
 print(','.join(reversed(a)))

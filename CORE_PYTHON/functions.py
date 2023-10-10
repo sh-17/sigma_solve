@@ -106,6 +106,7 @@ def fibbonacci(n):
 num = 10
 print("fibonacci")
 for i in range (num):
+
     print(fibbonacci(i),end="")
 
 """
@@ -116,8 +117,16 @@ for i in range (num):
     2)User Define Function
 
 -> Two Types of user define function :-
-    i)Default Function (No Argument)
-        Example - def class(): , def Test(): 
+    i)Default Function (No Argument) 
+        Example - 
+# default arguments
+def myFun(x, y=50):
+    print("x: ", x)
+    print("y: ", y)
+ 
+# (We call myFun() with only argument)
+myFun(10) 
+
     ii)Parameterised Function (Single or Multiple Argument)
         Example - def class(a): , def Test(x,y,z):
 

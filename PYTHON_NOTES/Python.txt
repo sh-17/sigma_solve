@@ -1,7 +1,41 @@
 (google sheet) : https://docs.google.com/spreadsheets/d/15KBEmVB8PVkcsEq7PkB-SOAKwfjY_7P4iZlgcs7rouk/edit#gid=0 
 
+1. Snake Case: Snake case has all words lowercase separated by underscores. This is primarily used for function and variable names.
+   Example: user_name, my_function
 
-1. Casting : means int,float,boolean , complex 
+2. Pascal Case: Pascal case is similar to camel case but starts with a capital letter. This is used for class names in Python.
+   Example: ClassName, MyClass
+
+3. Camel Case: Camel case has the first letter of each word capitalized except for the first word.
+   This is not commonly used in Python. Example: myVariable, isInstance
+
+4. Upper Case with Underscores: This is used for constants in Python.
+   Example: PI, MAX_OVERFLOW
+
+
+
+
+
+
+
+
+
+*****************************************************************************************************
+Variables
+Variables should be lowercase, with words separated by underscores as necessary to improve readability.
+Variables should be descriptive of the data they store.
+Variables should not be abbreviated.
+Functions
+Functions should be lowercase, with words separated by underscores as necessary to improve readability.
+Functions should be descriptive of the task they perform.
+Functions should not be abbreviated.
+Classes
+Classes should start with a capital letter.
+Classes should be nouns, not verbs.
+Classes should be descriptive of the object they represent.
+Classes should not be abbreviated.
+
+1. Casting : means int,float,boolean , complex
 
 **** Example ****
 x = 5

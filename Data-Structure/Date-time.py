@@ -20,8 +20,10 @@ print("date and time:",date_time)
 
 #Current Time :
 import time
-time = time.localtime(time.time())
+time.time() # gives output in seconds
+time = time.localtime(time.time()) # gives output in tuple
 print("Current local date and time is: ", time)
+
 
 #Formatted Time :
 import time
@@ -37,6 +39,33 @@ print ("calender month :",cal)
 import time
 t = time.localtime()
 print("local time :",f"time.asctime(t): {time.asctime(t)}")
+
+# empty time will take tuple as parameter
+
+import  time
+
+tuple = (2002,5,17,9,20,3)
+time.mktime()
+time.localtime(time.mktime(tuple))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Python program to explain time.gmtime() method
 
