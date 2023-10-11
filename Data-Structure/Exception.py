@@ -180,15 +180,14 @@
 # """ Explanation : Python expects data types to be compatible for certain operations.
 #     In this case, you can't add a string and an integer directly."""
 #
-# # 5. IndexError: This error occurs when we try to access an index that doesn't exist in a list or other sequence. If we try to access an index of a sequence that is invalid
-# my_list = [1, 2, 3]
-# print(my_list[5])
-# my_list[2]
+# # 5. IndexError: This error occurs when we try to access an index that doesn't exist in a list or other sequence.
+# If we try to access an index of a sequence that is invalid my_list = [1, 2, 3] print(my_list[5]) my_list[2]
 #
 # """ Explanation : You're trying to access an index that is out of the range of the list.
 #     Remember that Python lists are zero-indexed."""
 #
-# # 6. KeyError : If we try to access a key in a dictionary that is invalid or does not even exist, This error happens when you try to access a dictionary key that doesn't exist.
+# # 6. KeyError : If we try to access a key in a dictionary that is invalid or does not even exist, This error
+# happens when you try to access a dictionary key that doesn't exist.
 #
 # my_dict = {"name": "Alice"}
 # print(my_dict["age"])
@@ -212,17 +211,17 @@
 # # 9. ZeroDivisionError : If we try to perform division by 0
 #
 # result = 10 / 0
-#
+
 # """Explanation : Division by zero is undefined in mathematics , dividing by zero it will prevent this error."""
-#
+
 # # 10. AttributeError: when you try to access an attribute or method of an object that doesn't exist.
 # #     If we try to call an attribute (function object), its type is unsupported.
 # text = "Hello, world"
 # text.split(",")
-#
+
 # """ Explanation : Check if the attribute or method you're trying to use is available for the object
 #     you're working with."""
-#
+
 # # 11. IOError : If we give a wrong file name or incorrect location.
 # # 12. EOFError : If a function in python reaches the end of the file without reading any data at all.
 # # 13. OverflowError : If the result of an operation is too big to be presented

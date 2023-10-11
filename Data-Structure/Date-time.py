@@ -48,25 +48,6 @@ tuple = (2002,5,17,9,20,3)
 time.mktime()
 time.localtime(time.mktime(tuple))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Python program to explain time.gmtime() method
 
 # importing time module

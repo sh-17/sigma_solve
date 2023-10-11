@@ -35,9 +35,11 @@ print(list)
 list = [1,2,3]
 print(list)
 
-# USING HETEROGENOUS :
+# USING HETEROGENEOUS :
 
-""" Heterogenous: The list can contain different kinds of elements i.e; they can contain elements of string, integer, boolean, or any type."""
+"""Heterogeneous: The list can contain different kinds of elements 
+   i.e; they can contain elements of string, integer, 
+   boolean, or any type. """
 
 list = [1.0,'hetvi',56]
 print(list)
