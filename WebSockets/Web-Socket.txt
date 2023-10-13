@@ -1,0 +1,82 @@
+--> Web-Socket is Full Duplex ( Two Way Communication ) Protocol that is used in the same senario of client communication
+
+            - Half Duplex means one way communication
+            - used for both mobile apps & websites to enable real-time communication
+
+--> Web Socket is stateful protocol which means the connection between client and server will keep alive until
+    it is terminated by client or server , after closing the connection by anyone then
+    it will end the connection from both side
+
+--> Web Socket do not use http:// or https:// scheme because they do not follow http protocol
+
+--> Web Socket use ws:// or wss:// (host,port,path,any query parameters)
+e.g : ws://example.com:8000/ws/chat
+
+--> The client establishes a connection through a process known as Web Socket handshake.
+
+--> The process begins with the client sending a regular HTTP request to the server.
+
+--> An Upgrade header is requested. In this request, it informs the server that request is for Web Socket connection.
+
+--> Web Socket URLs use the ws scheme. They are also used for secure Web Socket connections, which are the equivalent to HTTPs.
+
+
+________________________________________________________________________________________________________________________
+""" How Web Socket Works ? """
+
+--> Client Sends http  req with additional header to be requested
+--> Server gets http request and notices the req for upgrade header. this let the server know that we are requesting for
+    a websockets connection
+--> if this connection is close by one side then it will end from the both side
+
+________________________________________________________________________________________________________________________
+
+""" HTTP VS WEB-SOCKET """
+
+---> HTTP : using this first client will send http req to server (any type of req), and server
+     gives us response for that and our connection get closed
+
+---> WebSocket : using this client will send the http req to server with upgrade header, server will handshake and
+     open the data transmission websockets  and then connection will open between client and server starts two
+     communication it will end until client or server gets closed
+
+________________________________________________________________________________________________________________________
+
+""" What we can Build """
+
+- Chat Application
+- Real Time Web Application
+- Notification
+- Trading (eg. Stock Market)
+- Location Based Application (Zomato)
+- Real-Time Data Visualization ( eg. Stock Market live up n downs)
+
+________________________________________________________________________________________________________________________
+
+""" When we have to use Web Socket """
+
+--> whenever we need continuously real time data stream over the internet , either it be client-to-server or
+    server-to-client only then you should use Websockets
+
+________________________________________________________________________________________________________________________
+
+""" When we don't have to use Web Socket """
+
+--> whenever we don't need to fetch data twice at that time we don't have to use web socket
+
+________________________________________________________________________________________________________________________
+
+""" AJAX VS WEBSOCKETS """
+
+--> Ajax used when the traditional request response is required
+
+        - when you send req, server sends response for that request and connection ends
+          ( inside this it will terminate connection if new req is not received )
+--> websockets used when real time communication used and want fast results..
+
+        - websockets establish a connection with server, and then you can communicate between client and
+          server as much we want, and it keeps connection alive
+            ( eg : inside this client will send req, server will handshake and start the communication
+            client : is there any new mail ? || server : no new email || after 5 minutes server is getting response
+            (connection is still open it will not terminate till client or server close) )
+________________________________________________________________________________________________________________________
