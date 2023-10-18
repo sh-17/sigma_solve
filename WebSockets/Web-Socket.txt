@@ -18,8 +18,8 @@ e.g : ws://example.com:8000/ws/chat
 
 --> An Upgrade header is requested. In this request, it informs the server that request is for Web Socket connection.
 
---> Web Socket URLs use the ws scheme. They are also used for secure Web Socket connections, which are the equivalent to HTTPs.
-
+--> Web Socket URLs use the ws scheme. They are also used for secure Web Socket connections,
+    which are the equivalent to HTTPs.
 
 ________________________________________________________________________________________________________________________
 """ How Web Socket Works ? """
