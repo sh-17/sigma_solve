@@ -80,7 +80,7 @@ print(result)
 for i in result:
     print(i)
 
-# Reduce : function ud=sed to reduce a sequence of elements to a single
+# Reduce : function used to reduce a sequence of elements to a single
 # value by processing elements according to a function supllied it will
 # return single value
 
