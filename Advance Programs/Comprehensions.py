@@ -1,6 +1,7 @@
 
 # DIFF BETWEEN LIST AND GENERATOR COMPREHENSION : GENERATORS DOESNT ALLOCATE MEMORY FOR THE WHOLE LIST INSTEAD THEY
-# ---->  generate each value one by one which is why they are memory efficient
+# generate each value one by one which is why they are memory efficient
+
 """ 1). LIST COMPREHENSION """
 # Syntax: [ expression for item in iterable ] -----> [l for l in range(1,11)]
 
@@ -15,6 +16,17 @@
             - iterable : the data which we want to iterate
             - condition : used for include and exclude items from the new list
 """
+# Diff of using comprehension and without using comprehension
+
+l = [1,5,4,3,6,9,45,63,89,15,30]
+div_by_3 = []
+for item in l:
+    if item%3 == 0:
+        div_by_3.append(item)
+print("without using comprehension : ",div_by_3)
+print("using comprehension: ",[item for  item in l if item%3==0])
+
+
 # Example 1: Generating an Even list WITHOUT using List comprehensions
 l = [i for i in range(1,12) if i%2==0 ]
 print(l)
@@ -34,7 +46,6 @@ print("Output List using list comprehension:",
 """ 2) DICTIONARY COMPREHENSION """
 """ output_dict = {key:value for (key, value) in iterable if (key, value 
     satisfy this condition)} """
-
 
 d = { i:f"item{i}"for i in range(1,10) }
 print(d)
@@ -69,6 +80,9 @@ print("Output Dictionary using dictionary comprehensions:", dict_using_comp)
 
 """ 3) SET COMPREHENSION """
 
+sqr = {x**2 for x in [1,2,3,4,4,5,5,5]}
+print("Square: ",sqr)
+
 # Example 1 : Checking Even number Without using set comprehension
 
 input_list = [1, 2, 3, 4, 4, 5, 6, 6, 6, 7, 7]
@@ -92,7 +106,9 @@ set_using_comp = {var for var in input_list if var % 2 == 0}
 print("Output Set using set comprehensions:",
       set_using_comp)
 
-""" GENERATOR COMPREHENSION """
+""" GENERATOR COMPREHENSION : A Python generator function allows you to declare a function that behaves like an iterator, providing a faster and easier way to create iterators. They can be used on an abstract container of data to turn it 
+    into an iterable object like lists, dictionaries and strings
+"""
 
 input_list = [1, 2, 3, 4, 4, 5, 6, 7, 7]
 
@@ -101,4 +117,4 @@ output_gen = (var for var in input_list if var % 2 == 0)
 print("Output values using generator comprehensions:", end=' ')
 
 for var in output_gen:
-    print(var, end=' ')
+    print(var,end=' ')
