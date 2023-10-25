@@ -1,0 +1,7 @@
+list1 = [1,2,3,4,5,6,7,8,9]
+list2 = [2,2,3,1,6,7,9]
+number of pair:0
+number of pair:4
+number of pair:4
+number of pair:4
+number of pair:4

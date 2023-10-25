@@ -118,3 +118,13 @@ print("Output values using generator comprehensions:", end=' ')
 
 for var in output_gen:
     print(var,end=' ')
+
+
+""" Difference between List Exp & Generator Exp : List comprehensions are usually faster than generator expressions  """
+import timeit
+print()
+print("list : ",timeit.timeit('''list_com = [i for i in range(100) if i % 2 == 0]''', number=1000000))
+
+# Generator Exp
+import timeit
+print("generators: ",timeit.timeit('''gen_exp = (i for i in range(100) if i % 2 == 0)''', number = 1000000))

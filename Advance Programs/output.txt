@@ -1,0 +1,1 @@
+Number of same pair of the said two given lists: 4

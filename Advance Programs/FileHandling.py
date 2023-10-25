@@ -1,112 +1,210 @@
-"""
-The key function for working with files in Python is the open() function.
+"""The key function for working with files in Python is the open() function.
 
-The open() function takes two parameters; filename, and mode.
+Opening Files in Python
+The open() Python method is the primary file handling function. The basic syntax is:
 
-There are four different methods (modes) for opening a file:
+file_object = open('file_name', 'mode')
 
-"r" - Read - Default value. Opens a file for reading, error if the file does not exist
+The open() function takes two elementary parameters for file handling:
 
-"a" - Append - Opens a file for appending, creates the file if it does not exist
+The file_name includes the file extension and assumes the file is in the current working directory.
+If the file location is elsewhere, provide the absolute or relative path.
 
-"w" - Write - Opens a file for writing, creates the file if it does not exist
+2. The mode is an optional parameter that defines the file opening method.
 
-"x" - Create - Creates the specified file, returns an error if the file exists
+'r'	Reads from a file and returns an error if the file does not exist (default).
+'w'	Writes to a file and creates the file if it does not exist or overwrites an existing file.
+'x'	Exclusive creation that fails if the file already exists.
+'a'	Appends to a file and creates the file if it does not exist or overwrites an existing file.
+'b'	Binary mode. Use this mode for non-textual files, such as images.
+'t'	Text mode. Use only for textual files (default).
+'+'	Activates read and write methods.
 
-In addition if the file should be handled as binary or text mode
+The mode must have exactly one create(x)/read(r)/write(w)/append(a) method, at most one +.
+Omitting the mode defaults to 'rt' for reading text files.
 
-"t" - Text - Default value. Text mode
+Behavior	Modes
+Read	r, r+, w+, a+, x+
+Write	r+, w, w+, a, a+, x+
+Create	w, w+, a, a+, x, x+
+Pointer Position Start	r, r+, w, w+, x, x+
+Pointer Position End	a, a+
+Truncate (clear contents)	w, w+
+Must Exist	r, r+
+Must Not Exist	x, x+
+Read Mode
+The read mode in Python opens an existing file for reading, positioning the pointer at the file's start.
 
-"b" - Binary - Binary mode (e.g. images)
+Note: If the file does not exist, Python throws an error.
 
-"""
-# E.G - 1 : The open() function returns a file object, which has a read() method for reading the content of the file
-f = open('myfile.txt','r')
-print(f.read())
+--> To read a text file in Python, load the file by using the open() function:
 
-# E.G - 2 : If the file is located in a different location, we will have to specify the file path
-f = open("D:\sigma_solve\Advance Programs\myfile.txt", "r")
-print(f.read())
+f = open("<file name>")
 
-# E.G : 3 :  By default the read() method returns the whole text, but we can also specify how many characters you want to return:
-f = open("myfile.txt", "r")
-print(f.read(5)) # it will print first 5 letter
+--> The mode defaults to read text ('rt'). Therefore, the following method is equivalent to the default:
 
-# E.G - 4 : By calling readline(), you can read the lines
+f = open("<file name>", "rt")
 
-f = open("myfile.txt","r")
+--> To read files in binary mode, use:
+
+f = open("<file name>", "rb")
+
+--> Add + to open a file in read and write mode:
+
+f = open("<file name>", "r+")  # Textual read and write
+
+f = open("<file name>", "rt+") # Same as above
+
+f = open("<file name>", "rb+") # Binary read and write
+
+--> In all cases, the function returns a file object and the characteristics depend on the chosen mode.
+
+--> Note: Refer to our article How to Read From stdin in Python to learn more about using stdin to read files.
+
+--> Write Mode
+        - Write mode creates a file for writing content and places the pointer at the start. If the file exists, write truncates (clears) any existing information.
+
+--> Warning: Write mode deletes existing content immediately. Check if a file exists before overwriting information by accident.
+
+--> To open a file for writing information, use:
+
+f = open("<file name>", "w")
+
+--> The default mode is text, so the following line is equivalent to the default:
+
+f = open("<file name>", "wt")
+
+--> To write in binary mode, open the file with:
+
+f = open("<file name>", "wb")
+
+--> Add + to allow reading the file:
+
+f = open("<file name>", "w+")  # Textual write and read
+
+f = open("<file name>", "wt+") # Same as above
+
+f = open("<file name>", "wb+") # Binary write and read
+
+--> The open() function returns a file object whose details depend on the chosen modes.
+
+--> Append Mode
+        - Append mode adds information to an existing file, placing the pointer at the end. If a file does not exist, append mode creates the file.
+
+--> Note: The key difference between write and append modes is that append does not clear a file's contents.
+
+f = open("<file name>", "a")  # Text append
+
+f = open("<file name>", "at") # Same as above
+
+f = open("<file name>", "ab") # Binary append
+
+--> Add the + sign to include the read functionality.
+
+Note: Learn how to append a string in Python.
+
+--> Create Mode
+        - Create mode (also known as exclusive create) creates a file only if it doesn't exist, positioning the pointer at the start of the file.
+
+--> Note: If the file exists, Python throws an error. Use this mode to avoid overwriting existing files.
+
+f = open("<file name>", "x")  # Text create
+
+f = open("<file name>", "xt") # Same as above
+
+f = open("<file name>", "xb") # Binary create
+
+--> Add the + sign to the mode include reading functionality to any of the above lines.
+
+--> Reading Files in Python
+        - After importing a file into an object, Python offers numerous methods to read the contents.
+
+--> Use the read() method on the file object and print the result. For example:
+
+f = open("file.txt")
+print(f.read(),end="")
+
+--> Note: The print() function automatically adds a new empty line. To change this behavior, add the end="" parameter to print() to remove the empty line.
+
+--> python read from file : The code prints the text file's contents. Read Parts of the File
+--> Provide a number to the read() function to read only the specified number of characters:
+
+f = open("file.txt")
+print(f.read(5))
+
+--> python read characters : The output prints the first five characters in the file.
+
+--> Alternatively, use the readline() method to print only the first line of the file:
+
+f = open("file.txt")
 print(f.readline())
 
-# E.G - 5 : By looping through the lines of the file, we can read the whole file, line by line
-f = open("myfile.txt","r")
-for a in f:
-    print(a)
+--> python read line
+--> Add an integer to the readline() function to print the specified number of characters without exceeding the first line.
 
-# E.G - 6 :
-"""Note: You should always close your files, in some cases, due to buffering, 
-changes made to a file may not show until you close the file.
-"""
-f = open("myfile.txt", "r")
-print(f.readline())
+--> Read Lines
+--> To read lines and iterate through a file's contents, use a for loop:
+
+f = open("file.txt")
+for line in f:
+    print(line, end="")
+
+--> python read file for loop : Alternatively, use the readlines() method on the file object:
+
+f = open("file.txt")
+print(f.readlines())
+
+--> python read lines : The function returns the list of lines from the file stream.
+
+--> Add an integer to the readlines() function to control the number of lines. For example:
+
+f = open("file.txt")
+print(f.readlines(15))
+
+--> python read lines characters : The integer represents the character number, and the function returns the line where the
+character ends along with the previous lines.
+
+--> Close Files
+        - A file remains open until invoking the close() function. use to avoid unpredictable file behavior and corrupted files.
+
+--> To close a file, run the close() method on the file object:
+
 f.close()
 
+--> An alternative way to ensure a file closes is to use the with statement. For example:
 
-""" 
+with open("<file name>"):
+    file_contents = f.read()
+    # Additional code here
 
-To write to an existing file, you must add a parameter to the open() function:
+--> The with statement automatically closes the file.
 
-"a" - Append - will append to the end of the file
-
-"w" - Write - will overwrite any existing content
-
-"""
-
-f = open("myfile2.txt", "a")
-f.write("Now the file has more content!")
-f.close()
-
-#open and read the file after the appending:
-f = open("myfile2.txt", "r")
-print(f.read())
-
-# Note: the "w" method will overwrite the entire file.
-
-"""
-
-To create a new file in Python, use the open() method, with one of the following parameters:
-
-"x" - Create - will create a file, returns an error if the file exist
-
-"a" - Append - will create a file if the specified file does not exist
-
-"w" - Write - will create a file if the specified file does not exist
-
-"""
-
-# f = open("demo.txt", "x")
-
-# Create a new file if it does not exist:
-
-# f = open("demo.txt", "w")
-
-""" To delete a file, you must import the OS module, and run its os.remove() function """
+-->  Deleting Files in Python
+Removing files in Python requires establishing communication with the operating system.
+Import the os library and delete a file
 
 import os
-os.remove("demo.txt")
+os.remove("file.txt")
 
-# Check if File exist:
-# To avoid getting an error, you might want to check if the file exists before you try to delete it:
-# Check if file exists, then delete it
 
-import os
-if os.path.exists("demo.txt"):
-  os.remove("demo.txt")
-else:
-  print("The file does not exist")
 
-# To delete an entire folder, use the os.rmdir() method:
-#
-# import os
-# os.rmdir("myfolder")
+Python File Methods
+Python offers various other functions when working with file objects.
 
-""" NOTE : WE CAN ONLY REMOVE EMPTY FOLDERS """
+
+close()	Flushes and closes the file object.
+detach()	Separates buffer from text stream and returns the buffer.
+fileno()	Returns the file's descriptor if available.
+flush()	Flushes the write buffer. Not available for read-only objects.
+isatty()	Checks if a file stream is interactive.
+read(<int>)	Read <int> number of characters at most.
+readable()	Checks if an object is readable.
+readline(<int>)	Reads from the object until a newline or end of the file.
+readlines(<int>)	Returns a list of lines from the file object, where <int> is the approximate character number.
+seek(<offset>, <position>)	Changes the pointer position to <offset> relative to the <position>.
+seekable()	Checks if the file object supports random access.
+tell()	Prints the current stream position.
+truncate(<byte>)	Resizes the file stream to <bytes> (or current position if unstated) and returns the size.
+write(<string>)	Writes <string> to the file object and returns the written number of characters.
+writable()	Checks whether the file object allows writing.
+writelines(<list>)	Writes a <list> of lines to the stream without a line separator."""

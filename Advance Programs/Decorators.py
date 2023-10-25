@@ -118,6 +118,7 @@ print("Example 5: ",ordinary())
 
 """ if i use the param... in the decor.. function """
 
+
 """ 
     *args:
     *args is used to send a non-keyworded variable length argument list to the function. 
@@ -206,3 +207,21 @@ class Decorator:
 def greet():
     return "good morning"
 print(greet())
+
+# E.G. : 2
+
+class Check_div:
+    def __init__(self,func):
+        self.func = func # here checking wether the second parameter is zero or not
+    def __call__(self, *args, **kwargs):
+        if args[1] == 0:
+            print("you cant devide change the input!!")
+        else:
+            self.func(*args,**kwargs)
+@Check_div
+def div(a,b):
+    return a/b
+print(div(10/2))
+
+
+
