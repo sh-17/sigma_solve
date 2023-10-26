@@ -1,0 +1,23 @@
+---> TYPES OF INHERITANCE :
+
+1. SINGLE INHERITANCE :  Single inheritance enables a derived class to inherit properties from a single parent class, thus enabling code reusability and the addition of new features to existing code.
+
+2. MULTILEVEL INHERITANCE : In multilevel inheritance, features of the base class and the derived class are further inherited into the new derived class. This is similar to
+                           a relationship representing a child and a grandfather.
+
+3. MULTIPLE INHERITANCE : when any two child class inherit in one parent class
+
+    - When a class can be derived from more than one base class this type of inheritance is called multiple inheritances. In multiple inheritances, all the features
+      of the base classes are inherited into the derived class.
+
+4. HIERARCHICAL INHERITANCE : When a class can be derived from more than one base class this type of inheritance is called multiple inheritances. In multiple inheritances, all the features of the base classes are inherited into the derived class. AL INHERITANCE : opposite of multiple inh.... when one class is inherit inside multiple class call hirechical
+
+    - When more than one derived class are created from a single base this type of inheritance is called hierarchical inheritance. In this program, we
+      have a parent (base) class and two child (derived) classes.
+
+
+
+5. HYBRID INHERITANCE : eg: one base class -- child class then that 3 class inherit in another class called parent class
+
+---> Main Class : Super, Base, Parent class
+---> Down Class : Sub, Derieved, Child class

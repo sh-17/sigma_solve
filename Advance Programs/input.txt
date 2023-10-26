@@ -4,4 +4,3 @@ number of pair:0
 number of pair:4
 number of pair:4
 number of pair:4
-number of pair:4

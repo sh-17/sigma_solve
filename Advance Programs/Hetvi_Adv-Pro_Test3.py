@@ -5,14 +5,46 @@
                                     [1, 2, 3, 4, 5, 6, 7, 8]
                                     [2, 2, 3, 1, 2, 6, 7, 9]
 
-    Number of same pair of the said two given lists:
-    4
+    Number of same pair of the said two given lists: 4
 """
+
+""" USING DECORATORS """
+
+
+def decorator_function(func):
+    def wrapper(*args, **kwargs):
+        print("Before the function execute")
+        result = func(*args, **kwargs)
+        print("After the function execute")
+        return result
+
+    return wrapper
+
+
+@decorator_function
+def count_pairs(list1, list2):
+    return sum(map(lambda x, y: 1 if x == y else 0, list1, list2))
+
+
+try:
+    list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    list2 = [2, 2, 3, 1, 2, 6, 7, 9]
+
+    same_pair = count_pairs(list1, list2)
+
+    print(f"Number of same pairs: {same_pair}")
+
+except Exception as e:
+    print(f"Number of pairs: {e}\n")
+
+""" Using Try & Except Blocks"""
 
 from collections import Counter
 # this function takes two lists as param.. it will count the no.s of pair in the two list with same elements
+
+
 def count_pairs(list1, list2):
-    return sum(map(lambda x, y: 1 if x == y else 0, list1, list2))  # i used map and sum func.. to count same pairs ..
+        return sum(map(lambda x, y: 1 if x == y else 0, list1, list2))  # i used map and sum func.. to count same pairs ..
 
 try:
     list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -25,12 +57,14 @@ try:
 except Exception as e:
     print(f"number of pair:{e}\n")
 
-
+# ---> Using File Handling
 
 from collections import Counter
+
+
 # this function takes two lists as param.. it will count the no.s of pair in the two list with same elements
 def count_pairs(list1, list2):
-    return sum(map(lambda x, y: 1 if x == y else 0, list1, list2))  # i used map and sum func.. to count same pairs ..
+    return sum(map(lambda x, y: 1 if x == y else 0, list1, list2))  # used map and sum func.. to count same pairs ..
 
 
 try:
@@ -59,7 +93,7 @@ def div_decor(func):
         try:
             number = func(a, b)
             return number  # Return the result of the division
-        except ZeroDivisionError as e:  # taking this exception to check wether the condition is true or not
+        except ZeroDivisionError as e:  # taking this exception to check  the condition is true or not
             print('Zero Division Error', e)
 
     return inner
