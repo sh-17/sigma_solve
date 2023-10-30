@@ -12,7 +12,8 @@ class MyClass:
 
 obj = MyClass(42)  # Creates an object and initializes its 'value' attribute.
 
-# 2. __str__ (Dunder Method): Defines a human-readable string representation of the object. It's used by the str() function and print
+# 2. __str__ (Dunder Method): Defines a human-readable string representation of the object. It's used by the str()
+# function and print
 
 class MyClass:
     def __init__(self, value):
