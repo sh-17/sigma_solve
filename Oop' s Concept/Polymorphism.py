@@ -75,4 +75,4 @@ emp1 = Employee("hetvi ",5000,"developer")
 # emp2 = Employee("Kashvi",500,"Cleaner")
 print(emp1)
 
-
+# duck typing support dynamic typing

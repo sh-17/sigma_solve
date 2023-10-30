@@ -1,6 +1,4 @@
 """ Encapsulation means the methods that work on data withing a single unit """
-
-
 # implementation details are hide
 
 # we restrict data access outside the class in encapsulation.... encapsulation can be achieved by declaring the data

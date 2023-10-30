@@ -33,3 +33,11 @@ gc.collect()
 
 # You'll see the "__del__" method being called as the objects are deleted
 
+"""
+In this example we create two Person objects named “ hetvi” & “sheth”. We then create a circular reference by 
+making each person reference the other as their friend. When we remove references to both objects using del, 
+they are no longer accessible. At this point, the garbage collector can identify and collect these objects, 
+and the __del__ method is called, indicating that the objects are being deleted. The circular reference does not 
+prevent the garbage collector from working correctly in this case.
+ 
+"""
