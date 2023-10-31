@@ -1,21 +1,19 @@
 from abc import ABC, abstractmethod  # Import the ABC class and the abstractmethod decorator from the abc module
 
-from setuptools.extension import Library
-
-
 class Book:
-    def __init__(self, title, author, isbn, price):
+    def __init__(self, title, author, isbn, price, is_available=True): # using init  to intialize book attributes
         self.title = title
         self.author = author
         self.isbn = isbn
         self.price = price
-        self.is_available = True
+        self.is_available = is_available
 
-    def get_title(self):
-        return self.title  # Use the correct attribute name
+    def get_title(self): # method to get title of book
+        return self.title
 
     def set_title(self, title):
-        self.title = title  # Use the correct attribute name
+        is_available = "Available" if self.is_available else "Not Available"
+        self.title = title
 
     def __str__(self):
         return f"Title: {self.title}\nAuthor: {self.author}\nISBN: {self.isbn}\nPrice: Rs.{self.price}\nAvailable: {self.is_available}"
@@ -60,11 +58,10 @@ class Library(ABC):  # INHERITS FROM ABC CLASS
 
 # This class inherits from both Library and Book,but it will not add any new
 # attributes or methods.
-class ALL_DATA(Library, Book, ABC):  # Abstract Class
+class ALL_DATA(Library, Book):  # Abstract Class
     @abstractmethod
-    def __Data(self):  # Abstract Method
+    def _Data(self):  # Abstract Method
         pass
-    print("data...................")
 """
 
 # Creating an instance of the book class and concrete subclass of liabrary
@@ -75,20 +72,24 @@ book3 = Book("Book3", "Author3", "ISBN333", 25.00)
 """
 
 
-class show_liabrary(Library):
+class show_library(Library): #multiple inheritance . It overrides the __init__ and add_book methods.
+    def __init__(self, name):
+        super().__init__(name)
+        self._books = []  # Initialize the _books list in the subclass
+
     def add_book(self, book):
-        super().add_book(book)  # Use super to call the base class method
-        self._books.append(book)  # Use the correct attribute name
+        self._books.append(book)
         return f"{book.get_title()} has been added to the library."
 
 
-my_library = show_liabrary("My Library")
+my_library = show_library("My Library")
 
-username = None  # Initialize username outside the loop
+username = None
 
 while True:
     print("\nLibrary Name:", my_library._name)
-    user_input = input("Press 1 to register, Press 2 for login, Press 3 to add a book, Press 4 to remove a book, Press q to quit,\n Enter Your Choice: ")
+    user_input = input(
+        "Press 1 to register, Press 2 for login, Press 3 to add a book, Press 4 to remove a book, Press q to quit,\n Enter Your Choice: ")
 
     if user_input == '1':
         username = input("Enter a username: ")
@@ -99,8 +100,11 @@ while True:
     elif user_input == '2':
         username = input("Enter your username: ")
         password = input("Enter your password: ")
-        login_result = my_library.login(username, password)
-        print(login_result)
+        try:
+            login_result = my_library.login(username, password)
+            print(login_result)
+        except Exception as e:
+            print(f"An error occurred during the login: {e}")
 
     elif user_input == '3':
         if username in my_library._users:
