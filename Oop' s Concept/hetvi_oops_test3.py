@@ -1,14 +1,27 @@
+
+"""
+Creating liabrary management system ...
+user can register, login , add thier books details... and remove book details
+
+# --> _password : using access modifiers concept to hide password
+# --> show_liabrary : using multiple inheritance for showih the list of items added by user
+
+"""
+
+
 from abc import ABC, abstractmethod  # Import the ABC class and the abstractmethod decorator from the abc module
 
+
 class Book:
-    def __init__(self, title, author, isbn, price, is_available=True): # using init  to intialize book attributes
+    def __init__(self, title, author, isbn, price, is_available=True):  # using init  to initialize book attributes
         self.title = title
         self.author = author
         self.isbn = isbn
         self.price = price
         self.is_available = is_available
 
-    def get_title(self): # method to get title of book
+    # using getter and setter method
+    def get_title(self):  # method to get title of book
         return self.title
 
     def set_title(self, title):
@@ -18,10 +31,11 @@ class Book:
     def __str__(self):
         return f"Title: {self.title}\nAuthor: {self.author}\nISBN: {self.isbn}\nPrice: Rs.{self.price}\nAvailable: {self.is_available}"
 
+
 class Library(ABC):  # INHERITS FROM ABC CLASS
     def __init__(self, name):
         self._name = name
-        self._books = []
+        self._books = [] # taking empty list to store value
         self._users = {}  # Dictionary to store registered users
 
     @abstractmethod
@@ -35,14 +49,14 @@ class Library(ABC):  # INHERITS FROM ABC CLASS
                 return f"{book.title} has been removed from the library."
         return "Book not found in the library."""
 
-    def remove_book(self, isbn): # trying to use list comprehension
+    def remove_book(self, isbn):  # trying to use list comprehension
         removed_books = [book.title for book in self._books if book.isbn == isbn]
         if removed_books:
             self.books = [book for book in self._books if book.isbn != isbn]
             return f"{' and '.join(removed_books)} {'have' if len(removed_books) > 1 else 'has'} been removed from the library."
         return "Book not found in the library."
 
-    def register_user(self, username, _password): # using _password as private method
+    def register_user(self, username, _password):  # using _password as private method
         if username not in self._users:
             self._users[username] = _password
             return f"User {username} has been registered."
@@ -62,6 +76,8 @@ class ALL_DATA(Library, Book):  # Abstract Class
     @abstractmethod
     def _Data(self):  # Abstract Method
         pass
+
+
 """
 
 # Creating an instance of the book class and concrete subclass of liabrary
@@ -72,7 +88,7 @@ book3 = Book("Book3", "Author3", "ISBN333", 25.00)
 """
 
 
-class show_library(Library): #multiple inheritance . It overrides the __init__ and add_book methods.
+class show_library(Library):  # multiple inheritance . It overrides the __init__ and add_book methods.
     def __init__(self, name):
         super().__init__(name)
         self._books = []  # Initialize the _books list in the subclass
@@ -84,7 +100,7 @@ class show_library(Library): #multiple inheritance . It overrides the __init__ a
 
 my_library = show_library("My Library")
 
-username = None
+username = None  # initializing the username outside the loop
 
 while True:
     print("\nLibrary Name:", my_library._name)
@@ -97,7 +113,7 @@ while True:
         registration_result = my_library.register_user(username, password)
         print(registration_result)
 
-    elif user_input == '2':
+    elif user_input == '2':  # using exception handling
         username = input("Enter your username: ")
         password = input("Enter your password: ")
         try:
