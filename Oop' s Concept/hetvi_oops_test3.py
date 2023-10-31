@@ -23,11 +23,18 @@ class Library(ABC):  # INHERITS FROM ABC CLASS
     def add_book(self, book):  # Define an abstract method
         pass
 
-    def remove_book(self, isbn):
+    """def remove_book(self, isbn):
         for book in self.books:
             if book.isbn == isbn:
                 self.books.remove(book)
                 return f"{book.title} has been removed from the library."
+        return "Book not found in the library."""
+
+    def remove_book(self, isbn): # trying to use list comprehension
+        removed_books = [book.title for book in self.books if book.isbn == isbn]
+        if removed_books:
+            self.books = [book for book in self.books if book.isbn != isbn]
+            return f"{' and '.join(removed_books)} {'have' if len(removed_books) > 1 else 'has'} been removed from the library."
         return "Book not found in the library."
 
     def register_user(self, username, _password): # using _password as private method
@@ -61,14 +68,12 @@ book3 = Book("Book3", "Author3", "ISBN333", 25.00)
 """
 
 
-class concreteliabrary(Library):
+class show_liabrary(Library):
     def add_book(self, book):
         super().add_book(book)  # Use super to call the base class method
         self.books.append(book)
         return f"{book.title} has been added to the library."
-
-
-my_library = concreteliabrary("My Library")
+my_library = show_liabrary("My Library")
 
 while True:
     print("\nLibrary Name:", my_library.name)
