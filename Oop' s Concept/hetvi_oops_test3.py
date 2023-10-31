@@ -1,5 +1,6 @@
+from abc import ABC, abstractmethod  # Import the ABC class and the abstractmethod decorator from the abc module
 
-from abc import ABC, abstractmethod
+
 class Book:
     def __init__(self, title, author, isbn, price):
         self.title = title
@@ -11,7 +12,8 @@ class Book:
     def __str__(self):
         return f"Title: {self.title}\nAuthor: {self.author}\nISBN: {self.isbn}\nPrice: Rs.{self.price}\nAvailable: {self.is_available}"
 
-class Library(ABC): #INHERITS FROM ABC CLASS
+
+class Library(ABC):  # INHERITS FROM ABC CLASS
     def __init__(self, name):
         self.name = name
         self.books = []
@@ -28,12 +30,12 @@ class Library(ABC): #INHERITS FROM ABC CLASS
                 return f"{book.title} has been removed from the library."
         return "Book not found in the library."
 
-    def register_user(self, username, _password):
+    def register_user(self, username, _password): # using _password as private method
         if username not in self.users:
             self.users[username] = _password
             return f"User {username} has been registered."
         else:
-            return "Username already exists. Please choose another username."
+            return "Username already exists. Please select any another username."
 
     def login(self, username, _password):
         if username in self.users and self.users[username] == _password:
@@ -41,28 +43,37 @@ class Library(ABC): #INHERITS FROM ABC CLASS
         else:
             return "Login failed. Please check your username and password."
 
+
+# This class inherits from both Library and Book,but it will not add any new
+# attributes or methods.
 class ALL_DATA(Library, Book, ABC):  # Abstract Class
     @abstractmethod
     def __Data(self):  # Abstract Method
         pass
     print("data...................")
+"""
 
-# Create some books and add them to the library
+# Creating an instance of the book class and concrete subclass of liabrary
 book1 = Book("Book1", "Author1", "ISBN111", 20.00)
 book2 = Book("Book2", "Author2", "ISBN222", 15.00)
 book3 = Book("Book3", "Author3", "ISBN333", 25.00)
 
+"""
+
+
 class concreteliabrary(Library):
     def add_book(self, book):
-        super().add_book(book) # Use super to call the base class method
+        super().add_book(book)  # Use super to call the base class method
         self.books.append(book)
         return f"{book.title} has been added to the library."
+
 
 my_library = concreteliabrary("My Library")
 
 while True:
     print("\nLibrary Name:", my_library.name)
-    user_input = input("Enter Your Choice:  \n Press 1 to register:  \n Press 2 for login : \n Press 3 to add a book: \n Press 4 to remove a book: \n Press q to quit: ")
+    user_input = input(
+        "Press 1 to register, Press 2 for login, Press 3 to add a book, Press 4 to remove a book, Press q to quit,\n Enter Your Choice: ")
 
     if user_input == '1':
         username = input("Enter a username: ")
@@ -84,7 +95,10 @@ while True:
             price = float(input("Enter the price: "))
             new_book = Book(title, author, isbn, price)
             result = my_library.add_book(new_book)
+            print()
             print(result)
+            print(new_book)
+
         else:
             print("Login required to add a book.")
 
