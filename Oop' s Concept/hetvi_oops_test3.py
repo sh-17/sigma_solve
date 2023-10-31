@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod  # Import the ABC class and the abstractmethod decorator from the abc module
 
+from setuptools.extension import Library
+
 
 class Book:
     def __init__(self, title, author, isbn, price):
@@ -9,18 +11,23 @@ class Book:
         self.price = price
         self.is_available = True
 
+    def get_title(self):
+        return self.title  # Use the correct attribute name
+
+    def set_title(self, title):
+        self.title = title  # Use the correct attribute name
+
     def __str__(self):
         return f"Title: {self.title}\nAuthor: {self.author}\nISBN: {self.isbn}\nPrice: Rs.{self.price}\nAvailable: {self.is_available}"
 
-
 class Library(ABC):  # INHERITS FROM ABC CLASS
     def __init__(self, name):
-        self.name = name
-        self.books = []
-        self.users = {}  # Dictionary to store registered users
+        self._name = name
+        self._books = []
+        self._users = {}  # Dictionary to store registered users
 
     @abstractmethod
-    def add_book(self, book):  # Define an abstract method
+    def add_book(self, book):
         pass
 
     """def remove_book(self, isbn):
@@ -31,21 +38,21 @@ class Library(ABC):  # INHERITS FROM ABC CLASS
         return "Book not found in the library."""
 
     def remove_book(self, isbn): # trying to use list comprehension
-        removed_books = [book.title for book in self.books if book.isbn == isbn]
+        removed_books = [book.title for book in self._books if book.isbn == isbn]
         if removed_books:
-            self.books = [book for book in self.books if book.isbn != isbn]
+            self.books = [book for book in self._books if book.isbn != isbn]
             return f"{' and '.join(removed_books)} {'have' if len(removed_books) > 1 else 'has'} been removed from the library."
         return "Book not found in the library."
 
     def register_user(self, username, _password): # using _password as private method
-        if username not in self.users:
-            self.users[username] = _password
+        if username not in self._users:
+            self._users[username] = _password
             return f"User {username} has been registered."
         else:
             return "Username already exists. Please select any another username."
 
     def login(self, username, _password):
-        if username in self.users and self.users[username] == _password:
+        if username in self._users and self._users[username] == _password:
             return f"Welcome, {username}!"
         else:
             return "Login failed. Please check your username and password."
@@ -71,14 +78,17 @@ book3 = Book("Book3", "Author3", "ISBN333", 25.00)
 class show_liabrary(Library):
     def add_book(self, book):
         super().add_book(book)  # Use super to call the base class method
-        self.books.append(book)
-        return f"{book.title} has been added to the library."
+        self._books.append(book)  # Use the correct attribute name
+        return f"{book.get_title()} has been added to the library."
+
+
 my_library = show_liabrary("My Library")
 
+username = None  # Initialize username outside the loop
+
 while True:
-    print("\nLibrary Name:", my_library.name)
-    user_input = input(
-        "Press 1 to register, Press 2 for login, Press 3 to add a book, Press 4 to remove a book, Press q to quit,\n Enter Your Choice: ")
+    print("\nLibrary Name:", my_library._name)
+    user_input = input("Press 1 to register, Press 2 for login, Press 3 to add a book, Press 4 to remove a book, Press q to quit,\n Enter Your Choice: ")
 
     if user_input == '1':
         username = input("Enter a username: ")
@@ -93,7 +103,7 @@ while True:
         print(login_result)
 
     elif user_input == '3':
-        if username in my_library.users:
+        if username in my_library._users:
             title = input("Enter the book title: ")
             author = input("Enter the author: ")
             isbn = input("Enter the ISBN: ")
@@ -108,7 +118,7 @@ while True:
             print("Login required to add a book.")
 
     elif user_input == '4':
-        if username in my_library.users:
+        if username in my_library._users:
             isbn = input("Enter the ISBN of the book to remove: ")
             result = my_library.remove_book(isbn)
             print(result)
