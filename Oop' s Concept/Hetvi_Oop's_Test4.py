@@ -1,4 +1,3 @@
-
 """
 Creating library management system ...
 user can register, login , add their books details... and remove book details
@@ -10,7 +9,6 @@ user can register, login , add their books details... and remove book details
 """
 
 from abc import ABC, abstractmethod  # Import the ABC class and the abstractmethod decorator from the abc module
-
 
 class Book:
     def __init__(self, title, author, isbn, price, is_available=True):  # using init  to initialize book attributes
@@ -35,7 +33,7 @@ class Book:
 class Library(ABC):  # INHERITS FROM ABC CLASS
     def __init__(self, name):
         self._name = name
-        self._books = [] # taking empty list to store value
+        self._books = []  # taking empty list to store value
         self._users = {}  # Dictionary to store registered users
 
     @abstractmethod
@@ -56,15 +54,15 @@ class Library(ABC):  # INHERITS FROM ABC CLASS
             return f"{' and '.join(removed_books)} {'have' if len(removed_books) > 1 else 'has'} been removed from the library."
         return "Book not found in the library."
 
-    def register_user(self, username, _password):  # using _password as private method
+    def register_user(self, username, __password):  # using _password as private method
         if username not in self._users:
-            self._users[username] = _password
+            self._users[username] = __password
             return f"User {username} has been registered."
         else:
             return "Username already exists. Please select any another username."
 
-    def login(self, username, _password):
-        if username in self._users and self._users[username] == _password:
+    def login(self, username, __password):
+        if username in self._users and self._users[username] == __password:
             return f"Welcome, {username}!"
         else:
             return "Login failed. Please check your username and password."
@@ -105,6 +103,7 @@ class show_library(Library):  # multiple inheritance . It overrides the __init__
                 print(book)
             return ""
 
+
 my_library = show_library("My Library")
 
 username = None  # initializing the username outside the loop
@@ -140,7 +139,6 @@ while True:
             print()
             print(result)
             print(new_book)
-
         else:
             print("Login required to add a book.")
 
@@ -154,7 +152,7 @@ while True:
 
     elif user_input == '5':
         books_result = my_library.view_book_list()
-        print("\n",books_result)
+        print("\n", books_result)
 
     elif user_input == 'q':
         break

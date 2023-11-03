@@ -1,0 +1,30 @@
+EXAMPLE :
+x = 4 <-- Constant
+y = x
+x = x+1
+
+
+---> We need to use shallow copy and deep copy because assignment operators will work for the
+     immutable objects , here we took 4 as constant , so  this assignment operator will work for the immutable object
+     but when i take mutable object like list,set,dictionary it won't work properly it will behave differently
+
+---> Immutable object is nothing but object which cannot altered and mutuable which can
+     be altered, so list set, dict, these all are mutable objects , when we will apply this assignment operator on them
+     it will behave differently
+
+
+Example :
+list1 = [1,2,3,4]
+list 2 = list 1
+list2
+# o/p : [1,2,3,4]
+list2.append(10)
+list2
+# o/p : [1,2,3,4,10] if we will print list then also it will shows us same output
+
+--> when I will alter one list it will affect another list also , so that is because when we take
+    list 2 append to list 1, so it is showing this output it will contain the reference to the values it won't contain the
+    values it will contain the reference... same value changes will affect both the list so it will show you that
+
+--> so it will save the original data and do modification on the copied data here if i do the modification on the copied list
+    it will also affect on original list the reason why shallow copy and deep copy are useful

@@ -4,7 +4,6 @@
     - this function returns temporary object which contains reference to parent class
 """
 
-
 class Computer(object):
     # def __init__(self,ram,storage): using parameterized
     def __init__(self):
