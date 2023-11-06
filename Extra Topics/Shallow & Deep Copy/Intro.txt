@@ -3,6 +3,14 @@ x = 4 <-- Constant
 y = x
 x = x+1
 
+In Python, Assignment statements do not copy objects, they create bindings between a target and an object. sometimes a
+user wants copies that user can modify without automatically modifying the original at the same time, in order to do that
+we create copies of objects.
+
+A shallow copy constructs a new compound object and then (to the extent possible) inserts references into it to the
+objects found in the original.
+
+Deep copy is a process in which the copying process occurs recursively. It means first constructing a new collection object and then recursively populating it with copies of the child objects found in the original. It means that any changes made to a copy of object do not reflect in the original object. In python, this is implemented using “deepcopy()” function.
 
 ---> We need to use shallow copy and deep copy because assignment operators will work for the
      immutable objects , here we took 4 as constant , so  this assignment operator will work for the immutable object
