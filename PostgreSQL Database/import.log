@@ -1,0 +1,6 @@
+2023-11-07 16:31:03,321 - ERROR - Error inserting data: [Errno 2] No such file or directory: 'data.csv'
+2023-11-07 16:31:03,362 - ERROR - Error inserting data: [Errno 2] No such file or directory: 'data.csv'
+2023-11-07 16:36:56,776 - ERROR - Error inserting data: partially initialized module 'csv' has no attribute 'reader' (most likely due to a circular import)
+2023-11-07 16:36:56,832 - ERROR - Error inserting data: module 'csv' has no attribute 'reader'
+2023-11-07 16:39:33,018 - ERROR - Error inserting data: partially initialized module 'csv' has no attribute 'reader' (most likely due to a circular import)
+2023-11-07 16:39:33,088 - ERROR - Error inserting data: module 'csv' has no attribute 'reader'

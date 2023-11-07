@@ -15,7 +15,7 @@ cur = conn.cursor()
 
 timestamp = datetime.now()
 
-insert_query = "INSERT INTO details (time_stamp) VALUES (%s)"
+insert_query = "INSERT INTO mycraftyarea (time_stamp) VALUES (%s)"
 
 cur.execute(insert_query, (timestamp,))
 
